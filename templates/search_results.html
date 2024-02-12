@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Search results - NourishPal{% endblock %}
+
+{% block content %}
+
+<h1>Search Results for "{{query}}"</h1>
+
+{% if matching_recipes %}
+    <ul>
+        {% for recipe in matching_recipes %}
+        </br>
+        <li>
+            <a href="{{ url_for('recipe_page', recipe_id=recipe.id) }}">
+                <h4>{{recipe.title}}</h4>
+            </a>
+            <img src="{{recipe.image}}" alt="{{recipe.title}}">
+        </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No matching recipes found.</p>
+{% endif %}
+
+
+
+
+{% endblock %}

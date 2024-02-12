@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block title %}{{title}} - NourishPal{% endblock %}
+{% block content %}
+
+<h2>{{ title }}</h2>
+<img src="{{image}}" alt="{{title}}">
+<form id="like-form-{{ recipe.id }}" class="like-form">
+    <button type="button" class="btn btn-sm like-button" data-recipe-id="{{ recipe.id }}">
+        {% if recipe.id in liked_recipe_ids %}
+            <i class="fas fa-bookmark fa-2x" style="color: red;"></i>
+        {% else %}
+            <i class="far fa-bookmark fa-2x"></i>
+        {% endif %}
+    </button>
+</form>
+
+<ul>
+    {% if recipe.vegeratian %}<li>Vegetarian</li>{% endif %}
+    {% if recipe.vegan %}<li>Vegan</li>{% endif %}
+    {% if recipe.glutenFree %}<li>Gluten free</li>{% endif %}
+    {% if recipe.dairyFree %}<li>Dairy free</li>{% endif %}
+    {% if recipe.veryHealthy %}<li>Very healthy</li>{% endif %}
+    {% if recipe.cheap %}<li>Cheap</li>{% endif %}
+    {% if recipe.veryPopular %}<li>Very popular</li>{% endif %}
+    {% if recipe.sustainable %}<li>Sustainable</li>{% endif %}
+    {% if recipe.lowFodmap %}<li>Low fodmap</li>{% endif %}
+</ul>
+<ul>
+    {% if recipe.preparationMinutes!=-1 %}<li>Preparation time: {{recipe.preparationMinutes}} minutes</li>{% endif %}
+    {% if recipe.cookingMinutes!=-1 %}<li>Cooking time: {{recipe.cookingMinutes}} minutes</li>{% endif %}
+    {% if recipe.aggregateLikes!=-1 %}<li>Likes: {{recipe.aggregateLikes}}</li>{% endif %}
+    {% if recipe.healthScore!=-1 %}<li>Health score: {{recipe.healthScore}}</li>{% endif %}
+    {% if recipe.pricePerServing!=-1 %}<li>Price per serving: ${{ '{:.2f}'.format(recipe.pricePerServing/100)}}</li>{% endif %}
+    {% if recipe.readyInMinutes!=-1 %}<li>Ready in: {{recipe.readyInMinutes}} minutes</li>{% endif %}
+    {% if recipe.servings!=-1 %}<li>Servings: {{recipe.servings}}</li>{% endif %}
+    {% if recipe.dishTypes!=-1 %}<li>Dish type: 
+        <ul>
+            {% for dishType in recipe.dishTypes%}
+                <li>{{dishType}}</li>
+            {% endfor %}
+        </ul>
+    </li>{% endif %}
+    {% if recipe.diets!=-1 %}<li>Diets: 
+        <ul>
+            {% for diet in recipe.diets%}
+                <li>{{diet}}</li>
+            {% endfor %}
+        </ul>
+    </li>{% endif %}
+    {% if recipe.occasions %}<li>Occasions: 
+        <ul>
+            {% for occasion in recipe.occasions%}
+                <li>{{occasion}}</li>
+            {% endfor %}
+        </ul>
+    </li>
+    {% endif %}
+</ul>
+
+<h3>Summary</h3>
+<p>{{ summary_text|replace('<a ', '<span ')|replace('</a>', '</span>')|safe }}</p>
+
+<h3>Instructions</h3>
+{% for step in instructions %}
+    <p>{{step.number}}. {{ step.step|replace('<a ', '<span ')|replace('</a>', '</span>')|safe }}</p>
+{% endfor %}
+
+<h3>Tips</h3>
+{% for tip_category, tip_list in recipe.tips.items() %}
+    <h4>{{ tip_category.capitalize() }}</h4>
+    <ul>
+        {% for tip in tip_list %}
+            <li>{{ tip|replace('<a ', '<span ')|replace('</a>', '</span>')|safe }}</li>
+        {% endfor %}
+    </ul>
+{% endfor %}
+
+{% endblock %}

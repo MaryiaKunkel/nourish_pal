@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Favorite recipes - NourishPal{% endblock %}
+{% block content %}
+
+<h2 class="join-message">Your favorite recipes:</h2>
+{% if recipes %}
+    <ul>
+        {% for recipe in recipes %}
+        </br>
+        <li>
+            <form id="like-form-{{ recipe.id }}" class="like-form">
+                <a href="{{ url_for('recipe_page', recipe_id=recipe.id) }}">
+                    <h4>{{ recipe.title }}</h4>
+                </a>
+                <img src="{{ recipe.image }}" alt="{{ recipe.title }}">
+                <button type="button" class="btn btn-sm like-button" data-recipe-id="{{ recipe.id }}">
+                    {% if recipe.is_liked %}
+                        <i class="fas fa-bookmark fa-2x" style="color: red;"></i>
+                    {% else %}
+                        <i class="far fa-bookmark fa-2x"></i>
+                    {% endif %}
+                </button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+{% endblock %}

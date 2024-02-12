@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}{{ g.user.first_name }} {{ g.user.last_name }} - NourishPal{% endblock %}
+{% block content %}
+
+<div class="row justify-content-md-center">
+    <div class="col-md-7 col-lg-5">
+      <h2 class="join-message">Profile details</h2>
+      <p>{{ g.user.first_name }} {{ g.user.last_name }}</p>
+      <p>{{ g.user.email }}</p>
+      <a href="/users/{{ g.user.id }}/edit">
+        <button>Edit</button>
+      </a>
+    </div>
+    <a href="/users/{{ g.user.id }}/favorites" style="margin-right: 10px;">Favorite recipes</a>
+    <a href="/users/{{ g.user.id }}/history" style="margin-right: 10px;">History</a>
+    <a href="/users/delete">
+        <button>Delete user</button>
+    </a>  
+  </div>
+
+
+
+{% endblock %}
