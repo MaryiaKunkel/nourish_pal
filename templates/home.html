@@ -2,12 +2,13 @@
 {% block title %}Home - NourishPal{% endblock %}
 
 {% block content %}
-
-    <h2 class="join-message">Search recipes</h2>
-    <form action="/search">
-        <input type="text" id="search" name="q" placeholder="What would you like to cook?">
-        <button type="submit">Search</button>
-    </form>
+    <div class="search-container">
+        <h3 class="join-message">Search recipes</h3>
+        <form action="/search">
+            <input type="text" id="search" name="q" placeholder="What would you like to cook?">
+            <button type="submit">Search</button>
+        </form>
+    </div>
 
     {% if recipes %}
     <ul>
@@ -16,16 +17,20 @@
         <li>
             <form id="like-form-{{ recipe.id }}" class="like-form">
                 <a href="{{ url_for('recipe_page', recipe_id=recipe.id) }}">
-                    <h4>{{ recipe.title }}</h4>
+                    <img src="{{ recipe.image }}" alt="{{ recipe.title }}" class="recipe-img">
                 </a>
-                <img src="{{ recipe.image }}" alt="{{ recipe.title }}">
-                <button type="button" class="btn btn-sm like-button" data-recipe-id="{{ recipe.id }}">
-                    {% if recipe.id in liked_recipe_ids %}
-                        <i class="fas fa-bookmark fa-2x" style="color: red;"></i>
-                    {% else %}
-                        <i class="far fa-bookmark fa-2x"></i>
-                    {% endif %}
-                </button>
+                <div class="recipe-details">
+                    <a href="{{ url_for('recipe_page', recipe_id=recipe.id) }}">
+                        <h6>{{ recipe.title }}</h6>
+                    </a>
+                    <button type="button" class="btn btn-sm like-button" data-recipe-id="{{ recipe.id }}">
+                        {% if recipe.id in liked_recipe_ids %}
+                            <i class="fas fa-bookmark fa-x" style="color: red;"></i>
+                        {% else %}
+                            <i class="far fa-bookmark fa-x"></i>
+                        {% endif %}
+                    </button>
+                </div>
             </form>
         </li>
         {% endfor %}
