@@ -3,17 +3,64 @@
 
 {% block content %}
 
-<h1>Search Results for "{{query}}"</h1>
+{% if query %}
+    <h1>Search Results for "{{query}}"</h1>
+{% elif cuisine or diet or intolerance or cuimeal_typesine or include_ingredients or exclude_ingredients or max_time %}
+    <h1>Search Results for:</h1>
+{% endif %}   
+
+{% if cuisine %}
+    <h4>Cuisine: {{ ', '.join(cuisine) }}</h4>
+{% endif %}
+
+{% if diet %}
+    <h4>Diet: {{ ', '.join(diet) }}</h4>
+{% endif %}
+
+{% if intolerance %}
+    <h4>Intolerance: {{ ', '.join(intolerance) }}</h4>
+{% endif %}
+
+{% if cuimeal_typesine %}
+    <h4>Meal type: {{ ', '.join(meal_type) }}</h4>
+{% endif %}
+
+{% if include_ingredients %}
+    <h4>Included ingredients: {{ ', '.join(include_ingredients) }}</h4>
+{% endif %}
+
+{% if exclude_ingredients %}
+    <h4>Excluded ingredients: {{ ', '.join(exclude_ingredients) }}</h4>
+{% endif %}
+
+{% if max_time %}
+    <h4>Max time: {{max_time}}</h4>
+{% endif %}
+
+
 
 {% if matching_recipes %}
     <ul>
         {% for recipe in matching_recipes %}
         </br>
         <li>
-            <a href="{{ url_for('recipe_page', recipe_id=recipe.id) }}">
-                <h4>{{recipe.title}}</h4>
-            </a>
-            <img src="{{recipe.image}}" alt="{{recipe.title}}">
+            <form id="like-form-{{ recipe.id }}" class="like-form">
+                <a href="{{ url_for('recipe_page', recipe_id=recipe.id) }}">
+                    <img src="{{ recipe.image }}" alt="{{ recipe.title }}" class="recipe-img">
+                </a>
+                <div class="recipe-details">
+                    <a href="{{ url_for('recipe_page', recipe_id=recipe.id) }}">
+                        <h6>{{ recipe.title }}</h6>
+                    </a>
+                    <button type="button" class="btn btn-sm like-button" data-recipe-id="{{ recipe.id }}">
+                        {% if recipe.id in liked_recipe_ids %}
+                            <i class="fas fa-bookmark fa-x" style="color: red;"></i>
+                        {% else %}
+                            <i class="far fa-bookmark fa-x"></i>
+                        {% endif %}
+                    </button>
+                </div>
+            </form>
         </li>
         {% endfor %}
     </ul>

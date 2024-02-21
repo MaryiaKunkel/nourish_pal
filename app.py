@@ -350,6 +350,7 @@ def search():
         exclude_ingredients = request.args.get('exclude-ingredients')
         max_time = request.args.get('maxTime')
 
+
         resp=requests.get("https://api.spoonacular.com/recipes/complexSearch", params={
             "apiKey": API_SECRET_KEY, 
             'query': query,
@@ -373,7 +374,15 @@ def search():
             matching_recipes = []
             # print(resp.content)
             # print(resp.status_code)
-        return render_template('search_results.html', query=query, matching_recipes=matching_recipes)
+        return render_template('search_results.html', 
+                               query=query, matching_recipes=matching_recipes,
+                                cuisine=cuisine,
+                                diet=diet,
+                                intolerance=intolerance,
+                                meal_type=meal_type,
+                                include_ingredients=include_ingredients,
+                                exclude_ingredients=exclude_ingredients,
+                                max_time=max_time)
     return render_template('search.html')
 
 

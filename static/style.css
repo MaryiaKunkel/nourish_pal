@@ -160,8 +160,8 @@ body {
 .recipe-img {
   max-width: 100%;
   height: auto;
-  /* width: 280px; */
-  transition: width 0.3s ease-in-out;
+  width: 280px;
+  transition: transform 0.3s ease-in-out;
   border-radius: 5px;
   margin-bottom: 10px;
 }
