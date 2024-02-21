@@ -22,3 +22,36 @@ $(document).ready(function () {
     });
   });
 });
+
+function toggleAdvancedSearch() {
+  let basicSearchForm = document.getElementById("basicSearchForm");
+  let advancedSearchForm = document.getElementById("advancedSearchForm");
+  let advancedSearchButton = document.getElementById("advancedSearchButton");
+
+  if (basicSearchForm.style.display === "none") {
+    basicSearchForm.style.display = "block";
+    advancedSearchForm.style.display = "none";
+    if (advancedSearchButton) {
+      advancedSearchButton.style.display = "block";
+    }
+  } else {
+    basicSearchForm.style.display = "none";
+    advancedSearchForm.style.display = "block";
+    if (advancedSearchButton) {
+      advancedSearchButton.style.display = "none";
+    }
+  }
+}
+
+function updateTimeOutputs() {
+  // Get the range input value
+  var selectedTime = document.getElementById("timeRange").value;
+
+  // document.getElementById("minTimeOutput").textContent = "0 minutes";
+  // document.getElementById("maxTimeOutput").textContent = "120 minutes";
+  document.getElementById("selectedTimeOutput").textContent =
+    selectedTime + " minutes";
+}
+
+// Initialize the time outputs on page load
+updateTimeOutputs();

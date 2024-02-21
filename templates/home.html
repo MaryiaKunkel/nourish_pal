@@ -4,10 +4,213 @@
 {% block content %}
     <div class="search-container">
         <h3 class="join-message">Search recipes</h3>
-        <form action="/search">
+        <form action="/search" id="basicSearchForm">
             <input type="text" id="search" name="q" placeholder="What would you like to cook?">
             <button type="submit">Search</button>
         </form>
+        
+        <form action="/search" id="advancedSearchForm" class="container" style="display: none;">
+            <!-- Advanced search form fields go here -->   
+            <h5>Cuisine:</h5>     
+            <div class="row">  
+                <div class="col-md-3">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" name="cuisine" value="african"> African <br>
+                            <input type="checkbox" name="cuisine" value="asian"> Asian<br>
+                            <input type="checkbox" name="cuisine" value="american"> American<br>
+                            <input type="checkbox" name="cuisine" value="british"> British<br>
+                            <input type="checkbox" name="cuisine" value="cajun"> Cajun<br>
+                            <input type="checkbox" name="cuisine" value="caribbean"> Caribbean<br>
+                            <input type="checkbox" name="cuisine" value="chinese"> Chinese<br>
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" name="cuisine" value="eastern-european"> Eastern European<br>
+                            <input type="checkbox" name="cuisine" value="european"> European<br>
+                            <input type="checkbox" name="cuisine" value="french"> French<br>
+                            <input type="checkbox" name="cuisine" value="german"> German<br>
+                            <input type="checkbox" name="cuisine" value="greek"> Greek<br>
+                            <input type="checkbox" name="cuisine" value="indian"> Indian<br>
+                            <input type="checkbox" name="cuisine" value="irish"> Irish<br>
+                        </label>
+                    </div>
+                </div> 
+                <div class="col-md-3">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" name="cuisine" value="italian"> Italian<br>
+                            <input type="checkbox" name="cuisine" value="japanese"> Japanese<br>
+                            <input type="checkbox" name="cuisine" value="jewish"> Jewish<br>
+                            <input type="checkbox" name="cuisine" value="korean"> Korean<br>
+                            <input type="checkbox" name="cuisine" value="latin-american"> Latin American<br>
+                            <input type="checkbox" name="cuisine" value="mediterranean"> Mediterranean<br>
+                            <input type="checkbox" name="cuisine" value="mexican"> Mexican<br>
+                        </label>
+                    </div> 
+                </div>
+                <div class="col-md-3">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" name="cuisine" value="middle-eastern"> Middle Eastern<br>
+                            <input type="checkbox" name="cuisine" value="nordic"> Nordic<br>
+                            <input type="checkbox" name="cuisine" value="southern"> Southern<br>
+                            <input type="checkbox" name="cuisine" value="spanish"> Spanish<br>
+                            <input type="checkbox" name="cuisine" value="thai"> Thai<br>
+                            <input type="checkbox" name="cuisine" value="vietnamese"> Vietnamese<br>
+                        </label>
+                    </div>
+                </div>
+            </div> 
+            <br>
+            <h5>Diet:</h5>     
+            <div class="row">  
+                <div class="col-md-3">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" name="diet" value="gluten-free"> Gluten Free<br>
+                            <input type="checkbox" name="diet" value="ketogenic"> Ketogenic<br>
+                            <input type="checkbox" name="diet" value="vegetarian"> Vegetarian<br>
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" name="diet" value="lacto-vegetarian
+                            "> Lacto-Vegetarian<br>
+                            <input type="checkbox" name="diet" value="ovo-vegetarian"> Ovo-Vegetarian<br>
+                            <input type="checkbox" name="diet" value="vegan"> Vegan<br>
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" name="diet" value="pescetarian"> Pescetarian<br>
+                            <input type="checkbox" name="diet" value="paleo"> Paleo<br>
+                            <input type="checkbox" name="diet" value="primal"> Primal<br>
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" name="diet" value="low-fodmap"> Low FODMAP<br>
+                            <input type="checkbox" name="diet" value="whole30"> Whole30<br>
+                        </label>        
+                    </div>
+                </div>
+            </div>
+            <br>
+            <h5>Intolerance:</h5>     
+            <div class="row">  
+                <div class="col-md-3">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" name="intolerance" value="dairy"> Dairy<br>
+                            <input type="checkbox" name="intolerance" value="egg"> Egg<br>
+                            <input type="checkbox" name="intolerance" value="gluten"> Gluten<br>
+                            <input type="checkbox" name="intolerance" value="grain"> Grain<br>
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" name="intolerance" value="peanut"> Peanut<br>
+                            <input type="checkbox" name="intolerance" value="vegan"> Vegan<br>
+                            <input type="checkbox" name="intolerance" value="seafood"> Seafood<br>
+                            <input type="checkbox" name="intolerance" value="sesame"> Sesame<br>
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" name="intolerance" value="shellfish"> Shellfish<br>
+                            <input type="checkbox" name="intolerance" value="soy"> Soy<br>
+                            <input type="checkbox" name="intolerance" value="sulfite"> Sulfite<br>
+                            <input type="checkbox" name="intolerance" value="tree-nut"> Tree Nut<br>
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" name="intolerance" value="wheat"> Wheat<br>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <h5>Type:</h5>     
+            <div class="row">  
+                <div class="col-md-3">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" name="type" value="main-course"> Main course<br>
+                            <input type="checkbox" name="type" value="side dish"> Side dish<br>
+                            <input type="checkbox" name="type" value="dessert"> Dessert<br>
+                            <input type="checkbox" name="type" value="appetizer"> Appetizer<br>                
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" name="type" value="salad"> Salad<br>
+                            <input type="checkbox" name="type" value="bread"> Bread<br>
+                            <input type="checkbox" name="type" value="breakfast"> Breakfast<br>
+                            <input type="checkbox" name="type" value="soup"> Soup<br>
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" name="type" value="beverage"> Beverage<br>
+                            <input type="checkbox" name="type" value="sauce"> Sauce<br>
+                            <input type="checkbox" name="type" value="marinade"> Marinade<br>
+                            <input type="checkbox" name="type" value="fingerfood"> Fingerfood<br>
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" name="type" value="snack"> Snack<br>
+                            <input type="checkbox" name="type" value="drink"> Drink<br>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div>
+                <p><i>If you want to include more than one ingredient, list them separated by commas</i></p>
+                Include ingredients<input type="text" name="include-ingredients"><br>
+                Exclude ingredients<input type="text" name="exclude-ingredients"><br>
+            </div>
+            <div>
+                <label>
+                    Time Range:
+                    <input type="range" id="timeRange" name="maxTime" min="0" max="240" step="5" value="120" oninput="updateTimeOutputs()">
+                </label>
+                <label>
+                    <output id="minTimeOutput"></output>
+                    <output id="maxTimeOutput"></output>
+                    <output id="selectedTimeOutput">120 minutes</output>
+                </label>
+                <br>
+            </div>
+            <button type="submit">Apply Filters</button>
+        </form>
+        
+        <button type="button" id="advancedSearchButton" onclick="toggleAdvancedSearch()">Advanced Search</button>
+
     </div>
 
     {% if recipes %}

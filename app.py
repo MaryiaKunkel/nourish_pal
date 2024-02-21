@@ -180,6 +180,8 @@ def edit_profile(user_id):
                 return redirect('/')
         return render_template('users/edit.html', form=form, user=user)
     
+
+    
 @app.route('/users/delete', methods=["POST"])
 def delete_user():
     """Delete user."""
@@ -338,19 +340,41 @@ def search():
         email=g.user.email
         user=User.query.filter_by(email=email).first()
 
-    query = request.args.get('q')
+        query = request.args.get('q')
 
-    resp=requests.get("https://api.spoonacular.com/recipes/complexSearch", params={"apiKey": API_SECRET_KEY, 'query': query, 'number':50})
+        cuisine = request.args.getlist('cuisine')
+        diet = request.args.getlist('diet')
+        intolerance = request.args.getlist('intolerance')
+        meal_type = request.args.getlist('type')
+        include_ingredients = request.args.get('include-ingredients')
+        exclude_ingredients = request.args.get('exclude-ingredients')
+        max_time = request.args.get('maxTime')
+
+        resp=requests.get("https://api.spoonacular.com/recipes/complexSearch", params={
+            "apiKey": API_SECRET_KEY, 
+            'query': query,
+            'cuisine': ','.join(cuisine),
+            'diet': ','.join(diet),
+            'intolerance': ','.join(intolerance),
+            'type': ','.join(meal_type),
+            'includeIngredients': include_ingredients,
+            'excludeIngredients': exclude_ingredients,
+            'maxTime': max_time,
+            'number':50
+            })
 
 
-    if resp.status_code == 200:
-        # API request successful, parse the JSON response
-        matching_recipes = resp.json()['results']
-    else:
-        # API request failed, handle the error (e.g., show an error message)
-        matching_recipes = []
-
-    return render_template('search_results.html', query=query, matching_recipes=matching_recipes)
+        if resp.status_code == 200:
+            # API request successful, parse the JSON response
+            matching_recipes = resp.json()['results']
+            # print(matching_recipes)
+        else:
+            # API request failed, handle the error (e.g., show an error message)
+            matching_recipes = []
+            # print(resp.content)
+            # print(resp.status_code)
+        return render_template('search_results.html', query=query, matching_recipes=matching_recipes)
+    return render_template('search.html')
 
 
 @app.after_request
