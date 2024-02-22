@@ -8,6 +8,10 @@
             <input type="text" id="search" name="q" placeholder="What would you like to cook?">
             <button type="submit">Search</button>
         </form>
+
+
+
+
         
         <form action="/search" id="advancedSearchForm" class="container" style="display: none;">
             <!-- Advanced search form fields go here -->   
@@ -190,10 +194,11 @@
             </div>
             <br>
             <div>
-                <p><i>If you want to include more than one ingredient, list them separated by commas</i></p>
-                Include ingredients<input type="text" name="include-ingredients"><br>
-                Exclude ingredients<input type="text" name="exclude-ingredients"><br>
+                <p><b>If you want to include/exclude more than one ingredient, list them separated by commas</b> <i>(e.g. "butter, flour, cabbage")</i></p>
+                Include ingredients <input type="text" name="include-ingredients">
+                Exclude ingredients <input type="text" name="exclude-ingredients">
             </div>
+        </br>
             <div>
                 <label>
                     Time Range:
@@ -204,12 +209,15 @@
                     <output id="maxTimeOutput"></output>
                     <output id="selectedTimeOutput">120 minutes</output>
                 </label>
-                <br>
+            </br>
+                <button type="button" id="hideAdvancedSearchButton" onclick="hideAdvancedSearch()">Hide Advanced Search</button>
+
             </div>
             <button type="submit">Apply Filters</button>
         </form>
         
         <button type="button" id="advancedSearchButton" onclick="toggleAdvancedSearch()">Advanced Search</button>
+
 
     </div>
 

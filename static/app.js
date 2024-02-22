@@ -27,20 +27,41 @@ function toggleAdvancedSearch() {
   let basicSearchForm = document.getElementById("basicSearchForm");
   let advancedSearchForm = document.getElementById("advancedSearchForm");
   let advancedSearchButton = document.getElementById("advancedSearchButton");
+  let hideAdvancedSearchButton = document.getElementById(
+    "hideAdvancedSearchButton"
+  );
 
   if (basicSearchForm.style.display === "none") {
     basicSearchForm.style.display = "block";
     advancedSearchForm.style.display = "none";
-    if (advancedSearchButton) {
-      advancedSearchButton.style.display = "block";
-    }
+    advancedSearchButton.style.display = "block";
+    hideAdvancedSearchButton.style.display = "none";
+    // if (advancedSearchButton) {
+    //   advancedSearchButton.style.display = "block";
+    // }
   } else {
     basicSearchForm.style.display = "none";
     advancedSearchForm.style.display = "block";
-    if (advancedSearchButton) {
-      advancedSearchButton.style.display = "none";
-    }
+    advancedSearchButton.style.display = "none";
+    hideAdvancedSearchButton.style.display = "block";
+    // if (advancedSearchButton) {
+    //   advancedSearchButton.style.display = "none";
+    // }
   }
+}
+
+function hideAdvancedSearch() {
+  let basicSearchForm = document.getElementById("basicSearchForm");
+  let advancedSearchForm = document.getElementById("advancedSearchForm");
+  let advancedSearchButton = document.getElementById("advancedSearchButton");
+  let hideAdvancedSearchButton = document.getElementById(
+    "hideAdvancedSearchButton"
+  );
+
+  basicSearchForm.style.display = "block";
+  advancedSearchForm.style.display = "none";
+  advancedSearchButton.style.display = "block";
+  hideAdvancedSearchButton.style.display = "none";
 }
 
 function updateTimeOutputs() {

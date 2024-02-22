@@ -53,6 +53,7 @@ button {
   border: none;
   width: auto;
   padding: 10px 20px;
+  margin: 5px 0;
 }
 
 button:hover {
@@ -152,7 +153,11 @@ body {
 
 .search-container form {
   width: 100%;
-  max-width: 400px;
+  /* max-width: 400px; */
+}
+
+#basicSearchForm {
+  text-align: center;
 }
 
 /* Recipe image blosk styling */
