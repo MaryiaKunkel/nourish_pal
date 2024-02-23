@@ -1,4 +1,4 @@
 markdownCopy code
 venv/
 __pycache__/
-secrets.py
+mysecrets.py
