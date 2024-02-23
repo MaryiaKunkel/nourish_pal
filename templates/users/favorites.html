@@ -1,18 +1,21 @@
 {% extends 'base.html' %}
 {% block title %}Favorite recipes - NourishPal{% endblock %}
 {% block content %}
-
+</br>
 <h2 class="join-message">Your favorite recipes:</h2>
 {% if recipes %}
-    <ul>
-        {% for recipe in recipes %}
-        </br>
-        <li>
-            <form id="like-form-{{ recipe.id }}" class="like-form">
+<ul class="recipe-home-page">
+    {% for recipe in recipes %}
+    </br>
+    <li class="recipe-li-home-page">
+        <form id="like-form-{{ recipe.id }}" class="like-form">
+            <a href="{{ url_for('recipe_page', recipe_id=recipe.id) }}">
+                <img src="{{ recipe.image }}" alt="{{ recipe.title }}" class="recipe-img">
+            </a>
+            <div class="recipe-details">
                 <a href="{{ url_for('recipe_page', recipe_id=recipe.id) }}">
-                    <h4>{{ recipe.title }}</h4>
+                    <h6>{{ recipe.title }}</h6>
                 </a>
-                <img src="{{ recipe.image }}" alt="{{ recipe.title }}">
                 <button type="button" class="btn btn-sm like-button" data-recipe-id="{{ recipe.id }}">
                     {% if recipe.id in liked_recipe_ids %}
                     <i class="fa-solid fa-bookmark fa-xl" style="color: #ff0000;"></i>
@@ -20,10 +23,11 @@
                     <i class="fa-regular fa-bookmark fa-xl"></i>
                 {% endif %}
                 </button>
-            </form> 
-        </li>
-        {% endfor %}
-    </ul>
-    {% endif %}
+            </div>
+        </form>
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}
 
 {% endblock %}
