@@ -63,19 +63,6 @@
           <li><a href="/users/{{g.user.id}}/history">History</a></li>
           <li><a href="/logout">Log out</a></li>
         {% else %}
-          <li>
-            <form class="navbar-form navbar-right" action="/search">
-              <input
-                name="q"
-                class="form-control"
-                placeholder="Search recipes"
-                id="search"
-              />
-              <button class="btn btn-default">
-                <span class="fa fa-search"></span>
-              </button>
-            </form>
-          </li>
           <li><a href="/signup">Sign up</a></li>
           <li><a href="/login">Log in</a></li>
           {% endif %}
