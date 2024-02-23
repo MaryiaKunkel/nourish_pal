@@ -266,3 +266,7 @@ input[type="range"] {
   width: 800px;
   height: auto;
 }
+
+.like-button {
+  margin: 10px 0 0 50px;
+}

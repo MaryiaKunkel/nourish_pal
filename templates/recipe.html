@@ -3,7 +3,7 @@
 {% block content %}
 <br>
 <div class="title-bookmark">
-    <h2>{{ title }}</h2>
+    <h1>{{ title }}</h1>
     <form id="like-form-{{ recipe.id }}" class="like-form">
         <button type="button" class="btn btn-sm like-button" data-recipe-id="{{ recipe.id }}">
             {% if recipe.id in liked_recipe_ids %}
@@ -14,6 +14,12 @@
         </button>
     </form>
 </div>
+</br>
+
+{% if summary_text %}
+<p>{{ summary_text|replace('<a ', '<span ')|replace('</a>', '</span>')|safe }}</p>
+{% endif %}
+
 <img class="img-recipe-page" src="{{image}}" alt="{{title}}">
 </br>
 <div class="recipe-info">
@@ -69,11 +75,6 @@
         {% endif %}
     </div>
 </div>
-
-{% if summary_text %}
-    <h3>Summary</h3>
-    <p>{{ summary_text|replace('<a ', '<span ')|replace('</a>', '</span>')|safe }}</p>
-{% endif %}
 
 {% if ingredients %}
     <h3>Ingredients</h3>
