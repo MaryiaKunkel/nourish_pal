@@ -296,3 +296,8 @@ input[type="range"] {
 .secondary-block h6 {
   margin-bottom: 20px;
 }
+
+.history-page-title-button {
+  display: flex;
+  justify-content: space-between;
+}

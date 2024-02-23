@@ -1,29 +1,35 @@
 {% extends 'base.html' %}
 {% block title %}History - NourishPal{% endblock %}
 {% block content %}
+</br>
+<div class="history-page-title-button">
+    <h2 class="join-message">Your history:</h2>
+    <form action="{{ url_for('clear_history', user_id=g.user.id) }}">
+        <button>Clear history</button>
+    </form>
+</div>
 
-<h2 class="join-message">Your history:</h2>
-<form action="{{ url_for('clear_history', user_id=g.user.id) }}">
-    <button>Clear history</button>
-</form>
-
-{% if recipes %}
-    <ul>
+    {% if recipes %}
+    <ul class="recipe-home-page">
         {% for recipe in recipes %}
         </br>
-        <li>
+        <li class="recipe-li-home-page">
             <form id="like-form-{{ recipe.id }}" class="like-form">
                 <a href="{{ url_for('recipe_page', recipe_id=recipe.id) }}">
-                    <h4>{{ recipe.title }}</h4>
+                    <img src="{{ recipe.image }}" alt="{{ recipe.title }}" class="recipe-img">
                 </a>
-                <img src="{{ recipe.image }}" alt="{{ recipe.title }}">
-                <button type="button" class="btn btn-sm like-button" data-recipe-id="{{ recipe.id }}">
-                    {% if recipe.id in liked_recipe_ids %}
-                    <i class="fa-solid fa-bookmark fa-xl" style="color: #ff0000;"></i>
-                {% else %}
-                    <i class="fa-regular fa-bookmark fa-xl"></i>
-                {% endif %}
-                </button>
+                <div class="recipe-details">
+                    <a href="{{ url_for('recipe_page', recipe_id=recipe.id) }}">
+                        <h6>{{ recipe.title }}</h6>
+                    </a>
+                    <button type="button" class="btn btn-sm like-button" data-recipe-id="{{ recipe.id }}">
+                        {% if recipe.id in liked_recipe_ids %}
+                        <i class="fa-solid fa-bookmark fa-xl" style="color: #ff0000;"></i>
+                    {% else %}
+                        <i class="fa-regular fa-bookmark fa-xl"></i>
+                    {% endif %}
+                    </button>
+                </div>
             </form>
         </li>
         {% endfor %}
