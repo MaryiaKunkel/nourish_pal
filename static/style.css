@@ -301,3 +301,19 @@ input[type="range"] {
   display: flex;
   justify-content: space-between;
 }
+
+.form-group {
+  display: flex;
+  margin: 10px;
+  justify-content: space-between;
+}
+
+.form-group .form-control {
+  width: 70%;
+}
+
+.form-group label {
+  text-align: center;
+  justify-content: center;
+  margin: 10px;
+}
