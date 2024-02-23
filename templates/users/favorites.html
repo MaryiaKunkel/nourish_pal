@@ -14,11 +14,11 @@
                 </a>
                 <img src="{{ recipe.image }}" alt="{{ recipe.title }}">
                 <button type="button" class="btn btn-sm like-button" data-recipe-id="{{ recipe.id }}">
-                    {% if recipe.is_liked %}
-                        <i class="fas fa-bookmark fa-2x" style="color: red;"></i>
-                    {% else %}
-                        <i class="far fa-bookmark fa-2x"></i>
-                    {% endif %}
+                    {% if recipe.id in liked_recipe_ids %}
+                    <i class="fa-solid fa-bookmark fa-xl" style="color: #ff0000;"></i>
+                {% else %}
+                    <i class="fa-regular fa-bookmark fa-xl"></i>
+                {% endif %}
                 </button>
             </form> 
         </li>

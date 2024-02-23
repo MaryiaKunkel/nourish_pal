@@ -54,10 +54,10 @@
                     </a>
                     <button type="button" class="btn btn-sm like-button" data-recipe-id="{{ recipe.id }}">
                         {% if recipe.id in liked_recipe_ids %}
-                            <i class="fas fa-bookmark fa-x" style="color: red;"></i>
-                        {% else %}
-                            <i class="far fa-bookmark fa-x"></i>
-                        {% endif %}
+                        <i class="fa-solid fa-bookmark fa-xl" style="color: #ff0000;"></i>
+                    {% else %}
+                        <i class="fa-regular fa-bookmark fa-xl"></i>
+                    {% endif %}
                     </button>
                 </div>
             </form>

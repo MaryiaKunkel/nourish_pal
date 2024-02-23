@@ -10,10 +10,10 @@ $(document).ready(function () {
       success: function (data) {
         if (data.is_liked) {
           button.html(
-            '<i class="fas fa-bookmark fa-x" style="color: red;"></i>'
+            '<i class="fa-solid fa-bookmark fa-xl" style="color: #ff0000;"></i>'
           );
         } else {
-          button.html('<i class="far fa-bookmark fa-x"></i>');
+          button.html('<i class="fa-regular fa-bookmark fa-xl"></i>');
         }
       },
       error: function (error) {
@@ -76,3 +76,15 @@ function updateTimeOutputs() {
 
 // Initialize the time outputs on page load
 updateTimeOutputs();
+
+document.addEventListener("DOMContentLoaded", function () {
+  const checkboxes = document.querySelectorAll(".ingredient-checkbox");
+
+  checkboxes.forEach(function (checkbox) {
+    checkbox.addEventListener("change", function () {
+      const label = this.nextElementSibling;
+      label.style.textDecoration = this.checked ? "line-through" : "none";
+      label.style.color = this.checked ? black : "";
+    });
+  });
+});

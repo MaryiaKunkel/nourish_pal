@@ -310,10 +310,10 @@ def recipe_page(recipe_id):
     recipe=data[0]
     title=data[0].get('title')
     image=data[0].get('image')
-
     instructions=data[0].get('analyzedInstructions')[0]['steps']
     summary_text=data[0].get('summary')
     tips_text=data[0].get('tips')['health']
+    ingredients=data[0].get("extendedIngredients")
 
     user = g.user
     fav_recipes=Liked_recipes.query.filter(user.id==user.id).all()
@@ -330,7 +330,7 @@ def recipe_page(recipe_id):
         db.session.add(history_entry)
     db.session.commit()
 
-    return render_template('recipe.html', title=title, instructions=instructions, image=image, recipe=recipe, summary_text=summary_text, tips_text=tips_text, liked_recipe_ids=liked_recipe_ids)
+    return render_template('recipe.html', title=title, instructions=instructions, image=image, recipe=recipe, summary_text=summary_text, tips_text=tips_text, liked_recipe_ids=liked_recipe_ids, ingredients=ingredients)
 
 
 

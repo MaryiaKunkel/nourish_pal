@@ -2,77 +2,114 @@
 {% block title %}{{title}} - NourishPal{% endblock %}
 {% block content %}
 <br>
-<h2>{{ title }}</h2>
-<img src="{{image}}" alt="{{title}}">
-<form id="like-form-{{ recipe.id }}" class="like-form">
-    <button type="button" class="btn btn-sm like-button" data-recipe-id="{{ recipe.id }}">
-        {% if recipe.id in liked_recipe_ids %}
-            <i class="fas fa-bookmark fa-2x" style="color: red;"></i>
-        {% else %}
-            <i class="far fa-bookmark fa-2x"></i>
+<div class="title-bookmark">
+    <h2>{{ title }}</h2>
+    <form id="like-form-{{ recipe.id }}" class="like-form">
+        <button type="button" class="btn btn-sm like-button" data-recipe-id="{{ recipe.id }}">
+            {% if recipe.id in liked_recipe_ids %}
+                <i class="fa-solid fa-bookmark fa-xl" style="color: #ff0000;"></i>
+            {% else %}
+                <i class="fa-regular fa-bookmark fa-xl"></i>
+            {% endif %}
+        </button>
+    </form>
+</div>
+<img class="img-recipe-page" src="{{image}}" alt="{{title}}">
+</br>
+<div class="recipe-info">
+    {% if recipe.vegeratian or recipe.vegan or recipe.glutenFree or recipe.dairyFree or recipe.veryHealthy or recipe.cheap or recipe.veryPopular or recipe.sustainable or recipe.lowFodmap%}
+    <div class="recipe-dietary-attributes">
+        <i><u>Diets:</u></i>
+        <ul>
+            {% if recipe.vegeratian %}<li><i class="fa-solid fa-leaf fa-xl" style="color: green;"></i></i> Vegetarian</li>{% endif %}
+            {% if recipe.vegan %}<li><i class="fas fa-seedling fa-lg" style="color: green;"></i> Vegan</li>{% endif %}
+            {% if recipe.glutenFree %}<li><i class="fa-solid fa-wheat-awn fa-lg" style="color: rgb(196, 160, 14);"></i> Gluten free</li>{% endif %}
+            {% if recipe.dairyFree %}<li><i class="fa-solid fa-cow fa-lg" style="color: rgb(112, 90, 0);"></i> Dairy free</li>{% endif %}
+            {% if recipe.veryHealthy %}<li><i class="fas fa-apple-alt fa-lg" style="color: green;"></i> Very healthy</li>{% endif %}
+            {% if recipe.cheap %}<li><i class="fa-solid fa-sack-dollar fa-lg"></i> Cheap</li>{% endif %}
+            {% if recipe.veryPopular %}<li><i class="fas fa-fire fa-lg" style="color: orangered;"></i> Very popular</li>{% endif %}
+            {% if recipe.sustainable %}<li><i class="fa-brands fa-nutritionix fa-lg" style="color: blue;"></i> Sustainable</li>{% endif %}
+            {% if recipe.lowFodmap %}<li><i class="fas fa-cubes fa-lg" style="color: rgb(242, 232, 191);"></i> Low fodmap</li>{% endif %}
+        </ul>
+    </div>
+    {%endif%}
+    <div class="recipe-details-info">
+        <i><u>Recipe details:</u></i>
+        <ul>
+            {% if recipe.preparationMinutes!=-1 %}<li><i class="fa-regular fa-hourglass-half fa-lg"></i> Preparation time: {{recipe.preparationMinutes}} minutes</li>{% endif %}
+            {% if recipe.cookingMinutes!=-1 %}<li><i class="fa-regular fa-clock fa-lg"></i>Cooking time: {{recipe.cookingMinutes}} minutes</li>{% endif %}
+            {% if recipe.aggregateLikes!=-1 %}<li><i class="fa-solid fa-heart fa-lg" style="color: #ff0000;"></i> Likes: {{recipe.aggregateLikes}}</li>{% endif %}
+            {% if recipe.healthScore!=-1 %}<li><i class="fa-solid fa-weight-scale fa-lg" style="color: #0a8cf0;"></i> Health score: {{recipe.healthScore}}</li>{% endif %}
+            {% if recipe.pricePerServing!=-1 %}<li><i class="fa-solid fa-money-check-dollar fa-lg" style="color: #27511f;"></i> Price per serving: ${{ '{:.2f}'.format(recipe.pricePerServing/100)}}</li>{% endif %}
+            {% if recipe.readyInMinutes!=-1 %}<li><i class="fa-solid fa-stopwatch fa-lg" style="color: #c900cc;"></i> Ready in: {{recipe.readyInMinutes}} minutes</li>{% endif %}
+            {% if recipe.servings!=-1 %}<li><i class="fa-solid fa-pizza-slice fa-lg" style="color: #ff5e29;"></i> Servings: {{recipe.servings}}</li>{% endif %}
+        </ul>
+    </div>
+
+
+    <div class="dish-type">
+        {% if recipe.dishTypes!=-1 %}
+            <i><u>Dish type:</u></i>
+            <ul>
+                {% for dishType in recipe.dishTypes%}
+                    <li>-{{dishType}}</li>
+                {% endfor %}
+            </ul>
         {% endif %}
-    </button>
-</form>
+    </div>
 
-<ul>
-    {% if recipe.vegeratian %}<li>Vegetarian</li>{% endif %}
-    {% if recipe.vegan %}<li>Vegan</li>{% endif %}
-    {% if recipe.glutenFree %}<li>Gluten free</li>{% endif %}
-    {% if recipe.dairyFree %}<li>Dairy free</li>{% endif %}
-    {% if recipe.veryHealthy %}<li>Very healthy</li>{% endif %}
-    {% if recipe.cheap %}<li>Cheap</li>{% endif %}
-    {% if recipe.veryPopular %}<li>Very popular</li>{% endif %}
-    {% if recipe.sustainable %}<li>Sustainable</li>{% endif %}
-    {% if recipe.lowFodmap %}<li>Low fodmap</li>{% endif %}
-</ul>
-<ul>
-    {% if recipe.preparationMinutes!=-1 %}<li>Preparation time: {{recipe.preparationMinutes}} minutes</li>{% endif %}
-    {% if recipe.cookingMinutes!=-1 %}<li>Cooking time: {{recipe.cookingMinutes}} minutes</li>{% endif %}
-    {% if recipe.aggregateLikes!=-1 %}<li>Likes: {{recipe.aggregateLikes}}</li>{% endif %}
-    {% if recipe.healthScore!=-1 %}<li>Health score: {{recipe.healthScore}}</li>{% endif %}
-    {% if recipe.pricePerServing!=-1 %}<li>Price per serving: ${{ '{:.2f}'.format(recipe.pricePerServing/100)}}</li>{% endif %}
-    {% if recipe.readyInMinutes!=-1 %}<li>Ready in: {{recipe.readyInMinutes}} minutes</li>{% endif %}
-    {% if recipe.servings!=-1 %}<li>Servings: {{recipe.servings}}</li>{% endif %}
-    {% if recipe.dishTypes!=-1 %}<li>Dish type: 
-        <ul>
-            {% for dishType in recipe.dishTypes%}
-                <li>{{dishType}}</li>
-            {% endfor %}
-        </ul>
-    </li>{% endif %}
-    {% if recipe.diets!=-1 %}<li>Diets: 
-        <ul>
-            {% for diet in recipe.diets%}
-                <li>{{diet}}</li>
-            {% endfor %}
-        </ul>
-    </li>{% endif %}
-    {% if recipe.occasions %}<li>Occasions: 
-        <ul>
-            {% for occasion in recipe.occasions%}
-                <li>{{occasion}}</li>
-            {% endfor %}
-        </ul>
-    </li>
-    {% endif %}
-</ul>
+    <div class="occasions">
+        {% if recipe.occasions %}
+        <i><u>Occasions:</u></i>
+            <ul>
+                {% for occasion in recipe.occasions%}
+                    <li>{{occasion}}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+</div>
 
-<h3>Summary</h3>
-<p>{{ summary_text|replace('<a ', '<span ')|replace('</a>', '</span>')|safe }}</p>
+{% if summary_text %}
+    <h3>Summary</h3>
+    <p>{{ summary_text|replace('<a ', '<span ')|replace('</a>', '</span>')|safe }}</p>
+{% endif %}
 
-<h3>Instructions</h3>
-{% for step in instructions %}
-    <p>{{step.number}}. {{ step.step|replace('<a ', '<span ')|replace('</a>', '</span>')|safe }}</p>
-{% endfor %}
-
-<h3>Tips</h3>
-{% for tip_category, tip_list in recipe.tips.items() %}
-    <h4>{{ tip_category.capitalize() }}</h4>
+{% if ingredients %}
+    <h3>Ingredients</h3>
     <ul>
-        {% for tip in tip_list %}
-            <li>{{ tip|replace('<a ', '<span ')|replace('</a>', '</span>')|safe }}</li>
-        {% endfor %}
+    {% for ingredient in ingredients %}
+        <li>
+            <input type="checkbox" id="ingredient-{{ loop.index }}" class="ingredient-checkbox">
+            <label for="ingredient-{{ loop.index }}" class="ingredient-label">
+                {{ingredient.amount}} {{ingredient.unit}} - {{ingredient.originalName}}
+            </label>
+        </li>
+    {% endfor %}
     </ul>
-{% endfor %}
+{% endif %}
+
+
+
+{% if instructions %}
+    <h3>Instructions</h3>
+    {% for step in instructions %}
+        <p>{{step.number}}. {{ step.step|replace('<a ', '<span ')|replace('</a>', '</span>')|safe }}</p>
+    {% endfor %}
+{% endif %}
+
+{% if tips_text %}
+    <h3>Tips</h3>
+    {% for tip_category, tip_list in recipe.tips.items() %}
+        {% if tip_category %}{% if tip_list %}
+        <h4>{{ tip_category.capitalize() }}</h4>
+        <ul>
+            {% for tip in tip_list %}
+                <li>{{ tip|replace('<a ', '<span ')|replace('</a>', '</span>')|safe }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}{% endif %}
+    {% endfor %}
+{% endif %}
 
 {% endblock %}
