@@ -270,3 +270,29 @@ input[type="range"] {
 .like-button {
   margin: 10px 0 0 50px;
 }
+
+.recipe-page {
+  display: flex;
+}
+
+.main-block {
+  flex: 1;
+  margin-right: 50px;
+}
+
+.secondary-block {
+  width: 200px;
+  height: auto;
+  padding: 20px;
+  background-color: rgb(255, 225, 169);
+}
+
+.img-secondary {
+  width: 160px;
+  height: auto;
+  border-radius: 5px;
+}
+
+.secondary-block h6 {
+  margin-bottom: 20px;
+}

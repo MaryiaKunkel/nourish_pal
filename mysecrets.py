@@ -1,0 +1,3 @@
+# API_SECRET_KEY = "1f4fae456a6146afaccd950eea13f179"
+
+API_SECRET_KEY = "b5cea6a17f3b49f7bfc0a3e4b880ab4f"

@@ -330,7 +330,14 @@ def recipe_page(recipe_id):
         db.session.add(history_entry)
     db.session.commit()
 
-    return render_template('recipe.html', title=title, instructions=instructions, image=image, recipe=recipe, summary_text=summary_text, tips_text=tips_text, liked_recipe_ids=liked_recipe_ids, ingredients=ingredients)
+    resp2=requests.get("https://api.spoonacular.com/recipes/complexSearch", params={"apiKey": API_SECRET_KEY, 'veryPopular': 'true'})
+    data2=resp2.json()
+    recipes2=data2.get('results')
+    # image2=data2[0].get('image')
+    # title2=data2[0].get('title')
+
+
+    return render_template('recipe.html', title=title, instructions=instructions, image=image, recipe=recipe, summary_text=summary_text, tips_text=tips_text, liked_recipe_ids=liked_recipe_ids, ingredients=ingredients, recipes2=recipes2)
 
 
 
