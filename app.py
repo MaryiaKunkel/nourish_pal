@@ -379,6 +379,9 @@ def search():
             matching_recipes = []
             # print(resp.content)
             # print(resp.status_code)
+
+
+
         return render_template('search_results.html', 
                                query=query, matching_recipes=matching_recipes,
                                 cuisine=cuisine,
@@ -388,6 +391,9 @@ def search():
                                 include_ingredients=include_ingredients,
                                 exclude_ingredients=exclude_ingredients,
                                 max_time=max_time)
+    
+
+
     return render_template('search.html')
 
 

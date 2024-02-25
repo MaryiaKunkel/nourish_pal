@@ -2,7 +2,7 @@
 {% block title %}Search results - NourishPal{% endblock %}
 
 {% block content %}
-
+</br>
 {% if query %}
     <h1>Search Results for "{{query}}"</h1>
 {% elif cuisine or diet or intolerance or cuimeal_typesine or include_ingredients or exclude_ingredients or max_time %}
@@ -21,16 +21,16 @@
     <h4>Intolerance: {{ ', '.join(intolerance) }}</h4>
 {% endif %}
 
-{% if cuimeal_typesine %}
+{% if meal_type %}
     <h4>Meal type: {{ ', '.join(meal_type) }}</h4>
 {% endif %}
 
 {% if include_ingredients %}
-    <h4>Included ingredients: {{ ', '.join(include_ingredients) }}</h4>
+    <h4>Included ingredients: {{ ''.join(include_ingredients) }}</h4>
 {% endif %}
 
 {% if exclude_ingredients %}
-    <h4>Excluded ingredients: {{ ', '.join(exclude_ingredients) }}</h4>
+    <h4>Excluded ingredients: {{ ''.join(exclude_ingredients) }}</h4>
 {% endif %}
 
 {% if max_time %}
@@ -40,10 +40,10 @@
 
 
 {% if matching_recipes %}
-    <ul>
+    <ul class="recipe-home-page">
         {% for recipe in matching_recipes %}
         </br>
-        <li>
+        <li class="recipe-li-home-page">
             <form id="like-form-{{ recipe.id }}" class="like-form">
                 <a href="{{ url_for('recipe_page', recipe_id=recipe.id) }}">
                     <img src="{{ recipe.image }}" alt="{{ recipe.title }}" class="recipe-img">

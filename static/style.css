@@ -53,7 +53,7 @@ button {
   border: none;
   width: auto;
   padding: 10px 20px;
-  margin: 5px 0;
+  margin: 5px 5px;
 }
 
 button:hover {
@@ -129,23 +129,38 @@ body {
   width: 80%;
   margin: 0 auto; /* Center the header horizontally */
   text-align: left; /* Center the contents of the header */
-
   padding: 10px; /* Add padding for spacing */
   position: relative;
 }
 
+.searches_home_page {
+  text-align: center;
+}
+
+.basic_search {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.buttons-search-adv-search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .search-container {
-  display: flex; /* Use flexbox for layout */
-  align-items: center; /* Center items vertically in the container */
+  display: flex;
+  align-items: center;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-.search-container #search {
+.searches_home_page #search,
+#fridgeSearch {
   width: 280px;
-  padding: 10px; /* Add padding for spacing */
   box-sizing: border-box;
   margin: 10px;
+  padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-style: italic;
@@ -186,6 +201,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0 10px;
 }
 
 .recipe-details a {
@@ -316,4 +332,17 @@ input[type="range"] {
   text-align: center;
   justify-content: center;
   margin: 10px;
+}
+
+.form-check-label {
+  text-align: left;
+}
+
+.container {
+  display: block;
+}
+
+#hideAdvancedSearchButton {
+  justify-content: center;
+  text-align: center;
 }

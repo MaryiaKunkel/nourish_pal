@@ -36,17 +36,11 @@ function toggleAdvancedSearch() {
     advancedSearchForm.style.display = "none";
     advancedSearchButton.style.display = "block";
     hideAdvancedSearchButton.style.display = "none";
-    // if (advancedSearchButton) {
-    //   advancedSearchButton.style.display = "block";
-    // }
   } else {
     basicSearchForm.style.display = "none";
     advancedSearchForm.style.display = "block";
     advancedSearchButton.style.display = "none";
-    hideAdvancedSearchButton.style.display = "block";
-    // if (advancedSearchButton) {
-    //   advancedSearchButton.style.display = "none";
-    // }
+    hideAdvancedSearchButton.style.display = "inline-block";
   }
 }
 
