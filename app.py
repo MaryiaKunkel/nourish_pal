@@ -265,7 +265,7 @@ def view_history(user_id):
 
 
 
-@app.route('/users/<int:user_id>/clear_history')
+@app.route('/users/<int:user_id>/clear_history', methods=['GET', 'POST'])
 def clear_history(user_id):
     if not g.user:
         flash("Access unauthorized.", "danger")
@@ -394,7 +394,7 @@ def search():
     
 
 
-    return render_template('search.html')
+    return render_template('home.html')
 
 
 @app.after_request
