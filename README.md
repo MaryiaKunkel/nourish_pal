@@ -53,10 +53,7 @@
     </li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
@@ -72,23 +69,16 @@
 
 ### Built With
 
-<!-- * [![Next][Next.js]][Next-url]
-* [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url] -->
-
-- [![Python]][Python-url]
-- [![JavaScript]][JavaScript-url]
-- [![HTML]][HTML-url]
-- [![CSS]][CSS-url]
-- [![Flask]][Flask-url]
+- [![Python][Python-img]][Python-url]
+- [![JavaScript]][][JavaScript-url]
+- [![HTML]][][HTML-url]
+- [![CSS]][][CSS-url]
+- [![Flask][Flask-img]][][Flask-url]
 - [![fontawesome]][fontawesome-url]
-- [![PostgreSQL]][PostgreSQL-url]
+- [![PostgreSQL][PostgreSQL-img]][PostgreSQL-url]
 - [![Django]][Django-url]
-- [![Bootstrap]][Bootstrap-url]
-- [![JQuery]][JQuery-url]
+- [![Bootstrap][Bootstrap-img]][Bootstrap-url]
+- [![JQuery][JQuery-img]][JQuery-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -184,7 +174,7 @@ Don't forget to give the project a star! Thanks again!
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request -->
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<!-- <p align="right">(<a href="#readme-top">back to top</a>)</p> -->
 
 <!-- LICENSE -->
 
@@ -198,7 +188,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 ## Contact
 
-Maryia Kunkel - [linkedin-url] - maryiakunkel@gmail.com
+Maryia Kunkel - [![LinkedIn][linkedin-shield]][linkedin-url] - maryiakunkel@gmail.com
 
 Project Link: [https://github.com/MaryiaKunkel/nourish_pal/](https://github.com/MaryiaKunkel/nourish_pal/)
 
@@ -216,15 +206,21 @@ Project Link: [https://github.com/MaryiaKunkel/nourish_pal/](https://github.com/
 
 <!-- MARKDOWN LINKS & IMAGES -->
 
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/maryia-kunkel/
 [product-screenshot]: static/logo.jpg
 [Bootstrap-url]: https://getbootstrap.com
+[Bootstrap-img]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [JQuery-url]: https://jquery.com
+[JQuery-img]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
 [Python-url]: https://www.python.org/
+[Python-img]: https://www.python.org/static/img/python-logo@2x.png
 [JavaScript-url]: https://developer.mozilla.org/en-US/docs/Web/JavaScript
 [HTML-url]: https://developer.mozilla.org/en-US/docs/Web/HTML
 [CSS-url]: https://developer.mozilla.org/en-US/docs/Web/CSS
 [Flask-url]: https://flask.palletsprojects.com/
+[Flask-img]: https://flask.palletsprojects.com/en/3.0.x/_images/flask-horizontal.png
 [fontawesome-url]: https://fontawesome.com/
 [PostgreSQL-url]: https://www.postgresql.org/
+[PostgreSQL-img]: https://www.postgresql.org/media/img/about/press/elephant.png
 [Django-url]: https://www.djangoproject.com/
