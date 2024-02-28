@@ -9,8 +9,8 @@
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
 
-Maryia Kunkel
 [![LinkedIn][linkedin-shield]][linkedin-url]
+The link to my project at Render.com: https://nourish-pal.onrender.com/
 
 <!-- PROJECT LOGO -->
 <br />
