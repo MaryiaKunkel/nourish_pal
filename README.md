@@ -69,16 +69,16 @@ Maryia Kunkel [![LinkedIn][linkedin-shield]][linkedin-url]
 
 ### Built With
 
-- [![Python][Python-img]][Python-url]
-- [![JavaScript]][][JavaScript-url]
-- [![HTML]][][HTML-url]
-- [![CSS]][][CSS-url]
-- [![Flask][Flask-img]][][Flask-url]
-- [![fontawesome]][fontawesome-url]
-- [![PostgreSQL][PostgreSQL-img]][PostgreSQL-url]
-- [![Django]][Django-url]
-- [![Bootstrap][Bootstrap-img]][Bootstrap-url]
-- [![JQuery][JQuery-img]][JQuery-url]
+- [![Python][Python Badge]][Python-url]
+- [![JavaScript][JavaScript Badge]][][JavaScript-url]
+- [![HTML][HTML Badge]][HTML-url]
+- [![CSS][CSS Badge]][CSS-url]
+- [![Flask][Flask Badge]][Flask-url]
+- [![fontawesome][fontawesome Badge]][fontawesome-url]
+- [![PostgreSQL][PostgreSQL Badge]][PostgreSQL-url]
+- [![Django][Django Badge]][Django-url]
+- [![Bootstrap][Bootstrap Badge]][Bootstrap-url]
+- [![JQuery][JQuery Badge]][JQuery-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
