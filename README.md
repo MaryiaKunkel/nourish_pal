@@ -9,7 +9,8 @@
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
 
-Maryia Kunkel [![LinkedIn][linkedin-shield]][linkedin-url]
+Maryia Kunkel
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
 <!-- PROJECT LOGO -->
 <br />
@@ -70,7 +71,7 @@ Maryia Kunkel [![LinkedIn][linkedin-shield]][linkedin-url]
 ### Built With
 
 - [![Python][Python Badge]][Python-url]
-- [![JavaScript][JavaScript Badge]][][JavaScript-url]
+- [![JavaScript][JavaScript Badge]][JavaScript-url]
 - [![HTML][HTML Badge]][HTML-url]
 - [![CSS][CSS Badge]][CSS-url]
 - [![Flask][Flask Badge]][Flask-url]
@@ -139,8 +140,13 @@ API_KEY = 'ENTER YOUR API';
 
 ## Usage
 
-- [ ] Use advanced search to find the recipe that meets your requirements.
-    [![Product Name Screen Shot][advanced_search_1]]
+- [ ] Use advanced search to find the recipe that meets your requirements. [advanced_search_1] [advanced_search_2]
+- [ ] Get the search results with the listed information which you required. [advanced_search_results]
+- [ ] Save recipes you likes to Favorites. [favorites]
+- [ ] See the resipes you visited in Hisroty. [history]
+- [ ] Edit your profile. [profile] [profile_edit]
+- [ ] See a detailed information about a recipe including diet, cooking time, meal type, etc, as well as trending recipes right now. [recipe_page_1] [recipe_page_2]
+
 <!-- Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources. -->
 
 <!-- _For more examples, please refer to the [Documentation](https://example.com)_ -->
@@ -190,7 +196,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 ## Contact
 
-Maryia Kunkel - [![LinkedIn][linkedin-url]] - maryiakunkel@gmail.com
+Maryia Kunkel - [LinkedIn][linkedin-url] - maryiakunkel@gmail.com
 
 Project Link: [https://github.com/MaryiaKunkel/nourish_pal/](https://github.com/MaryiaKunkel/nourish_pal/)
 
@@ -224,7 +230,8 @@ Project Link: [https://github.com/MaryiaKunkel/nourish_pal/](https://github.com/
 [CSS-url]: https://developer.mozilla.org/en-US/docs/Web/CSS
 [CSS Badge]: https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white
 [Flask-url]: https://flask.palletsprojects.com/
-[Flask Badge]: https://flask.palletsprojects.com/en/3.0.x/_images/flask-horizontal.png
+
+[Flask Badge]: https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/
 [fontawesome-url]: https://fontawesome.com/
 [FontAwesome Badge]: https://img.shields.io/badge/FontAwesome-339AF0?style=for-the-badge&logo=font-awesome&logoColor=white
 [PostgreSQL-url]: https://www.postgresql.org/
@@ -232,11 +239,11 @@ Project Link: [https://github.com/MaryiaKunkel/nourish_pal/](https://github.com/
 [Django-url]: https://www.djangoproject.com/
 [Django Badge]: https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white
 [product-screenshot]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/home_page.png
-[advanced_search_1]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/advanced_search_1.png
-[advanced_search_2]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/advanced_search_2.png
-[advanced_search_results]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/advanced_search_results.png
-[favorites]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/favorites.png
-[profile]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/profile.png
-[profile_edit]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/profile_edit.png
-[recipe_page_1]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/recipe_page_1.png
-[recipe_page_2]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/recipe_page_2.png
+[advanced_search_1]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/advanced_search_1.png
+[advanced_search_2]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/advanced_search_2.png
+[advanced_search_results]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/advanced_search_results.png
+[favorites]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/favorites.png
+[profile]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/profile.png
+[profile_edit]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/profile_edit.png
+[recipe_page_1]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/recipe_page_1.png
+[recipe_page_2]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/recipe_page_2.png
