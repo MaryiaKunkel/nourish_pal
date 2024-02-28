@@ -144,7 +144,7 @@ API_KEY = 'ENTER YOUR API';
 - [ ] Get the search results with the listed information which you required. ![advanced_search_result](https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/advanced_search_result.png)
 - [ ] Save recipes you likes to Favorites. ![favorites](https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/favorites.png)
 - [ ] See the resipes you visited in Hisroty. ![history](https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/history.png)
-- [ ] Edit your profile. ![profile](https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/profile.png) ![profile_edit](https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/profile_edit.png)
+- [ ] Edit your profile. ![prifile](https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/prifile.png) ![profile_edit](https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/profile_edit.png)
 - [ ] See a detailed information about a recipe including diet, cooking time, meal type, etc, as well as trending recipes right now. ![recipe_page_1](https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/recipe_page_1.png) ![recipe_page_2](https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/recipe_page_2.png)
 
 <!-- Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources. -->
@@ -243,7 +243,7 @@ Project Link: [https://github.com/MaryiaKunkel/nourish_pal/](https://github.com/
 [advanced_search_result]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/advanced_search_result.png
 [favorites]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/favorites.png
 [history]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/history.png
-[profile]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/profile.png
+[prifile]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/prifile.png
 [profile_edit]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/profile_edit.png
 [recipe_page_1]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/recipe_page_1.png
 [recipe_page_2]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/recipe_page_2.png
