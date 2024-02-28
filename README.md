@@ -141,7 +141,7 @@ API_KEY = 'ENTER YOUR API';
 ## Usage
 
 - [ ] Use advanced search to find the recipe that meets your requirements. ![advanced_search_1](https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/advanced_search_1.png) ![advanced_search_2](https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/advanced_search_2.png)
-- [ ] Get the search results with the listed information which you required. ![advanced_search_results](https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/advanced_search_results.png)
+- [ ] Get the search results with the listed information which you required. ![advanced_search_result](https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/advanced_search_result.png)
 - [ ] Save recipes you likes to Favorites. ![favorites](https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/favorites.png)
 - [ ] See the resipes you visited in Hisroty. ![history](https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/history.png)
 - [ ] Edit your profile. ![profile](https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/profile.png) ![profile_edit](https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/profile_edit.png)
@@ -230,8 +230,7 @@ Project Link: [https://github.com/MaryiaKunkel/nourish_pal/](https://github.com/
 [CSS-url]: https://developer.mozilla.org/en-US/docs/Web/CSS
 [CSS Badge]: https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white
 [Flask-url]: https://flask.palletsprojects.com/
-
-[Flask Badge]: https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/
+[Flask Badge]: https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white
 [fontawesome-url]: https://fontawesome.com/
 [FontAwesome Badge]: https://img.shields.io/badge/FontAwesome-339AF0?style=for-the-badge&logo=font-awesome&logoColor=white
 [PostgreSQL-url]: https://www.postgresql.org/
@@ -241,7 +240,7 @@ Project Link: [https://github.com/MaryiaKunkel/nourish_pal/](https://github.com/
 [product-screenshot]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/home_page.png
 [advanced_search_1]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/advanced_search_1.png
 [advanced_search_2]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/advanced_search_2.png
-[advanced_search_results]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/advanced_search_results.png
+[advanced_search_result]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/advanced_search_result.png
 [favorites]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/favorites.png
 [history]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/history.png
 [profile]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/profile.png
