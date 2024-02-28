@@ -9,7 +9,7 @@
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
 
-[![LinkedIn][linkedin-shield]][linkedin-url]
+Maryia Kunkel [![LinkedIn][linkedin-shield]][linkedin-url]
 
 <!-- PROJECT LOGO -->
 <br />
@@ -139,6 +139,8 @@ API_KEY = 'ENTER YOUR API';
 
 ## Usage
 
+- [ ] Use advanced search to find the recipe that meets your requirements.
+    [![Product Name Screen Shot][advanced_search_1]]
 <!-- Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources. -->
 
 <!-- _For more examples, please refer to the [Documentation](https://example.com)_ -->
@@ -188,7 +190,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 ## Contact
 
-Maryia Kunkel - [![LinkedIn][linkedin-shield]][linkedin-url] - maryiakunkel@gmail.com
+Maryia Kunkel - [![LinkedIn][linkedin-url]] - maryiakunkel@gmail.com
 
 Project Link: [https://github.com/MaryiaKunkel/nourish_pal/](https://github.com/MaryiaKunkel/nourish_pal/)
 
@@ -210,17 +212,31 @@ Project Link: [https://github.com/MaryiaKunkel/nourish_pal/](https://github.com/
 [linkedin-url]: https://www.linkedin.com/in/maryia-kunkel/
 [product-screenshot]: static/logo.jpg
 [Bootstrap-url]: https://getbootstrap.com
-[Bootstrap-img]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
+[Bootstrap Badge]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [JQuery-url]: https://jquery.com
-[JQuery-img]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
+[JQuery Badge]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
 [Python-url]: https://www.python.org/
-[Python-img]: https://www.python.org/static/img/python-logo@2x.png
+[Python Badge]: https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white
 [JavaScript-url]: https://developer.mozilla.org/en-US/docs/Web/JavaScript
+[JavaScript Badge]: https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black
 [HTML-url]: https://developer.mozilla.org/en-US/docs/Web/HTML
+[HTML Badge]: https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white
 [CSS-url]: https://developer.mozilla.org/en-US/docs/Web/CSS
+[CSS Badge]: https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white
 [Flask-url]: https://flask.palletsprojects.com/
-[Flask-img]: https://flask.palletsprojects.com/en/3.0.x/_images/flask-horizontal.png
+[Flask Badge]: https://flask.palletsprojects.com/en/3.0.x/_images/flask-horizontal.png
 [fontawesome-url]: https://fontawesome.com/
+[FontAwesome Badge]: https://img.shields.io/badge/FontAwesome-339AF0?style=for-the-badge&logo=font-awesome&logoColor=white
 [PostgreSQL-url]: https://www.postgresql.org/
-[PostgreSQL-img]: https://www.postgresql.org/media/img/about/press/elephant.png
+[PostgreSQL Badge]: https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white
 [Django-url]: https://www.djangoproject.com/
+[Django Badge]: https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white
+[product-screenshot]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/home_page.png
+[advanced_search_1]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/advanced_search_1.png
+[advanced_search_2]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/advanced_search_2.png
+[advanced_search_results]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/advanced_search_results.png
+[favorites]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/favorites.png
+[profile]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/profile.png
+[profile_edit]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/profile_edit.png
+[recipe_page_1]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/recipe_page_1.png
+[recipe_page_2]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/recipe_page_2.png
