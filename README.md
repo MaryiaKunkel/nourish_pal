@@ -140,12 +140,12 @@ API_KEY = 'ENTER YOUR API';
 
 ## Usage
 
-- [ ] Use advanced search to find the recipe that meets your requirements. [advanced_search_1] [advanced_search_2]
-- [ ] Get the search results with the listed information which you required. [advanced_search_results]
-- [ ] Save recipes you likes to Favorites. [favorites]
-- [ ] See the resipes you visited in Hisroty. [history]
-- [ ] Edit your profile. [profile] [profile_edit]
-- [ ] See a detailed information about a recipe including diet, cooking time, meal type, etc, as well as trending recipes right now. [recipe_page_1] [recipe_page_2]
+- [ ] Use advanced search to find the recipe that meets your requirements. ![advanced_search_1](https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/advanced_search_1.png) ![advanced_search_2](https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/advanced_search_2.png)
+- [ ] Get the search results with the listed information which you required. ![advanced_search_results](https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/advanced_search_results.png)
+- [ ] Save recipes you likes to Favorites. ![favorites](https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/favorites.png)
+- [ ] See the resipes you visited in Hisroty. ![history](https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/history.png)
+- [ ] Edit your profile. ![profile](https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/profile.png) ![profile_edit](https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/profile_edit.png)
+- [ ] See a detailed information about a recipe including diet, cooking time, meal type, etc, as well as trending recipes right now. ![recipe_page_1](https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/recipe_page_1.png) ![recipe_page_2](https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/recipe_page_2.png)
 
 <!-- Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources. -->
 
@@ -243,6 +243,7 @@ Project Link: [https://github.com/MaryiaKunkel/nourish_pal/](https://github.com/
 [advanced_search_2]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/advanced_search_2.png
 [advanced_search_results]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/advanced_search_results.png
 [favorites]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/favorites.png
+[history]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/history.png
 [profile]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/profile.png
 [profile_edit]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/profile_edit.png
 [recipe_page_1]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/recipe_page_1.png
