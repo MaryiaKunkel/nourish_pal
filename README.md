@@ -77,7 +77,7 @@ The link to my project at Render.com: https://nourish-pal.onrender.com/
 - [![Flask][Flask Badge]][Flask-url]
 - [![fontawesome][fontawesome Badge]][fontawesome-url]
 - [![PostgreSQL][PostgreSQL Badge]][PostgreSQL-url]
-- [![Django][Django Badge]][Django-url]
+- [![Jinja][Jinja Badge]][Jinja-url]
 - [![Bootstrap][Bootstrap Badge]][Bootstrap-url]
 - [![JQuery][JQuery Badge]][JQuery-url]
 
@@ -235,8 +235,8 @@ Project Link: [https://github.com/MaryiaKunkel/nourish_pal/](https://github.com/
 [FontAwesome Badge]: https://img.shields.io/badge/FontAwesome-339AF0?style=for-the-badge&logo=font-awesome&logoColor=white
 [PostgreSQL-url]: https://www.postgresql.org/
 [PostgreSQL Badge]: https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white
-[Django-url]: https://www.djangoproject.com/
-[Django Badge]: https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white
+[Jinja-url]: https://jinja.palletsprojects.com/en/3.1.x/
+[Jinja Badge]: https://img.shields.io/badge/template-Jinja-green
 [product-screenshot]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/home_page.png
 [advanced_search_1]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/advanced_search_1.png
 [advanced_search_2]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/advanced_search_2.png
