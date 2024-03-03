@@ -70,7 +70,6 @@ def signup():
     If the there already is a user with that username: flash message
     and re-present form.
     """
-
     form = UserAddForm()
 
     if form.validate_on_submit():
@@ -81,17 +80,18 @@ def signup():
                 email=form.email.data,
                 password=form.password.data
             )
-            flash("Registration successful! Welcome to NourishPal.", 'success')
+
             db.session.commit()
+            do_login(user)  
+            flash("Registration successful! Welcome to NourishPal.", 'success')
 
+            return redirect('/')
 
-        except IntegrityError:
+        except IntegrityError as e:
+            db.session.rollback()
             flash(f"User with email {form.email.data} already signed up", 'danger')
             return render_template('users/signup.html', form=form)
                     
-        do_login(user)
-
-        return redirect('/')
 
     else:
         return render_template('users/signup.html', form=form)
