@@ -52,7 +52,16 @@ The link to my project at Render.com: https://nourish-pal.onrender.com/
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
+    <li>
+      <a href="#usage">Usage</a>
+    </li>
+    <li>
+      <a href="#usage">Testing</a>
+        <ul>
+          <li><a href="#prerequisites">Prerequisites</a></li>
+          <li><a href="#installation">Running tests</a></li>
+      </ul>
+    </li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
@@ -95,43 +104,54 @@ To get a local copy up and running follow these simple steps.
 - Python
 
   ```sh
-  # Install or update Python to the latest version
-  sudo apt-get update
-  sudo apt-get install python3
+  # Install or update Python to the version 3.11.4
+  sudo apt update
+  sudo apt install python3.11.4
   ```
 
 - Flask
 
   ```sh
-  # Install Flask using pip
-  pip install Flask
+  # Install Flask (version 3.0.1) using pip
+  pip install Flask==3.0.1
   ```
 
 - PostgreSQL
   ```sh
-  # Install PostgreSQL
-  sudo apt-get install postgresql
+  # Install PostgreSQL (version 15.4)
+  sudo apt-get install postgresql-15
   ```
 
 ### Installation
 
 1. Get a free API Key at [spoonacular.com](https://spoonacular.com/food-api) or you can use my API that is in .gitignore.
-2. Clone the repo
+2. Create a vertual environment
+   ```sh
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
+3. Clone the repo
    ```sh
    git clone https://github.com/MaryiaKunkel/nourish_pal.git
    ```
-3. Install Python packages
+4. Install Python packages
    ```sh
    pip install -r requirements.txt
    ```
-4. Set up your PostgreSQL database
+5. Set up your PostgreSQL database
    ```
    # Follow instructions to create and configure your PostgreSQL database
    ```
-5. If you decide to use your own API key, enter the key in mysecrets.py
+6. If you decide to use your own API key, enter the key in mysecrets.py
 
 ```python
 API_KEY = 'ENTER YOUR API';
+```
+
+7. Run flask server
+
+```sh
+flask run
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -153,6 +173,49 @@ API_KEY = 'ENTER YOUR API';
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<!-- TESTS -->
+
+## Testing
+
+To ensure the functionality and correctness of the project, you can run the following unit tests. Make sure you have the necessary dependencies installed before running the tests.
+
+### Prerequisites
+
+```bash
+# Install test dependencies (if not already installed)
+pip install -r requirements-test.txt
+```
+
+### Running tests
+
+1. Main Application Tests
+
+```bash
+# Run tests for the main Flask application
+FLASK_ENV=production python3 -m unittest test_app.py
+```
+
+2. History Model Tests
+
+   ```bash
+   # Run tests for the history_model module.
+   python3 -m unittest test_history_model.py
+
+   ```
+
+3. Liked Recipes Model Tests
+   ```bash
+   # Run tests for the liked_recipes_model module.
+   python3 -m unittest test_liked_recipes_model.py
+   ```
+4. User Model Tests
+
+```bash
+# Run tests for the user_model module.
+python3 -m unittest test_user_model.py
+```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 <!-- ROADMAP -->
 
 ## Roadmap
@@ -247,3 +310,7 @@ Project Link: [https://github.com/MaryiaKunkel/nourish_pal/](https://github.com/
 [profile_edit]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/profile_edit.png
 [recipe_page_1]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/recipe_page_1.png
 [recipe_page_2]: https://github.com/MaryiaKunkel/nourish_pal/blob/nourishpal/static/recipe_page_2.png
+
+```
+
+```

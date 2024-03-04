@@ -10,17 +10,11 @@
       href="https://unpkg.com/bootstrap/dist/css/bootstrap.css"
     />
     <script src="https://unpkg.com/jquery"></script>
-    <!-- <script src="https://unpkg.com/popper"></script> -->
     <script src="https://unpkg.com/bootstrap"></script>
-    <!-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> -->
     <script src="https://kit.fontawesome.com/27c815dc16.js" crossorigin="anonymous"></script>
     
     <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
-    <!-- <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-    /> -->
     <link rel="stylesheet" href="/static/style.css" />
     <link rel="shortcut icon" href="/static/logo_tab.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -50,7 +44,7 @@
 
         <ul class="nav navbar-nav ml-auto">
           {% if g.user %}
-          <li>
+          <li id="user-status">
             <a href="/users/{{ g.user.id }}">
               <span>{{ g.user.username }}</span>
             </a>

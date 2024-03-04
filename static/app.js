@@ -4,22 +4,26 @@ $(document).ready(function () {
     let button = $(this);
     let recipeId = button.data("recipe-id");
 
-    $.ajax({
-      type: "POST",
-      url: "/users/add_like/" + recipeId,
-      success: function (data) {
-        if (data.is_liked) {
-          button.html(
-            '<i class="fa-solid fa-bookmark fa-xl" style="color: #ff0000;"></i>'
-          );
-        } else {
-          button.html('<i class="fa-regular fa-bookmark fa-xl"></i>');
-        }
-      },
-      error: function (error) {
-        console.error("Error:", error);
-      },
-    });
+    if ($("#user-status").length > 0) {
+      $.ajax({
+        type: "POST",
+        url: "/users/add_like/" + recipeId,
+        success: function (data) {
+          if (data.is_liked) {
+            button.html(
+              '<i class="fa-solid fa-bookmark fa-xl" style="color: #ff0000;"></i>'
+            );
+          } else {
+            button.html('<i class="fa-regular fa-bookmark fa-xl"></i>');
+          }
+        },
+        error: function (error) {
+          console.error("Error:", error);
+        },
+      });
+    } else {
+      alert("Log in first");
+    }
   });
 });
 
@@ -59,16 +63,11 @@ function hideAdvancedSearch() {
 }
 
 function updateTimeOutputs() {
-  // Get the range input value
   var selectedTime = document.getElementById("timeRange").value;
-
-  // document.getElementById("minTimeOutput").textContent = "0 minutes";
-  // document.getElementById("maxTimeOutput").textContent = "120 minutes";
   document.getElementById("selectedTimeOutput").textContent =
     selectedTime + " minutes";
 }
 
-// Initialize the time outputs on page load
 updateTimeOutputs();
 
 document.addEventListener("DOMContentLoaded", function () {

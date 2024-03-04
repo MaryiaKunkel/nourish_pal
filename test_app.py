@@ -8,7 +8,6 @@
 
 import os
 from unittest import TestCase
-from sqlalchemy.exc import PendingRollbackError
 
 
 from models import db, User, History_recipes, Liked_recipes

@@ -1,9 +1,8 @@
 import os, pdb, requests, re
 
-from flask import Flask, render_template, request, flash, redirect, session, g, jsonify
+from flask import Flask, render_template, request, flash, redirect, session, g, jsonify, url_for
 from bs4 import BeautifulSoup
 from mysecrets import API_SECRET_KEY
-# from flask_debugtoolbar import DebugToolbarExtension
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy import desc
 from datetime import datetime
@@ -22,9 +21,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = (
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = False
-# app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = True
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', "it's a secret")
-# toolbar = DebugToolbarExtension(app)
 
 connect_db(app)
 
@@ -39,7 +36,6 @@ app.app_context().push()
 @app.before_request
 def add_user_to_g():
     """If we're logged in, add curr user to Flask global."""
-    # pdb.set_trace()
     if CURR_USER_KEY in session:
         g.user = User.query.get(session[CURR_USER_KEY])
 
@@ -206,8 +202,13 @@ def users_favorites(user_id):
         return redirect("/")
 
     user = User.query.get_or_404(user_id)
-    fav_recipes=Liked_recipes.query.filter(user_id==user.id).all()
+
+
+    fav_recipes=Liked_recipes.query.filter_by(user_id=user.id).all()
     liked_recipe_ids=[fav.recipe_id for fav in fav_recipes]
+
+    if not liked_recipe_ids:
+        flash("No favorite recipes found.", "info")
 
     ids_string=','.join(map(str, liked_recipe_ids))
 
@@ -220,20 +221,25 @@ def users_favorites(user_id):
     return render_template('users/favorites.html', user=user, recipes=recipes, liked_recipe_ids=liked_recipe_ids)
 
 
+
 @app.route("/users/add_like/<int:recipe_id>", methods=['POST'])
 def add_like(recipe_id):
-    print('Route triggered with recipe_id:', recipe_id)
-    user=User.query.get_or_404(g.user.id)
-    existing_like=Liked_recipes.query.filter_by(user_id=user.id, recipe_id=recipe_id).first()
+    if g.user:
+        print('Route triggered with recipe_id:', recipe_id)
+        user=User.query.get_or_404(g.user.id)
+        existing_like=Liked_recipes.query.filter_by(user_id=user.id, recipe_id=recipe_id).first()
 
-    if not existing_like:
-        new_like=Liked_recipes(user_id=user.id, recipe_id=recipe_id)
-        db.session.add(new_like)
-    else: 
-        db.session.delete(existing_like)
-        
-    db.session.commit()
-    return jsonify({'is_liked': not existing_like})
+        if not existing_like:
+            new_like=Liked_recipes(user_id=user.id, recipe_id=recipe_id)
+            db.session.add(new_like)
+        else: 
+            db.session.delete(existing_like)
+            
+        db.session.commit()
+        return jsonify({'is_liked': not existing_like})
+    else:
+        flash('Log in first', 'danger')
+        return jsonify({'logged_in': False})
 
 
 @app.route('/users/<int:user_id>/history')
@@ -301,100 +307,102 @@ def home():
 
 @app.route('/recipe/<int:recipe_id>')
 def recipe_page(recipe_id):
-    if not g.user:
-        flash("Access unauthorized.", "danger")
-        return redirect("/")
     
-    resp=requests.get("https://api.spoonacular.com/recipes/informationBulk", params={"apiKey": API_SECRET_KEY, 'ids': recipe_id})
-    data=resp.json()
-    recipe=data[0]
-    title=data[0].get('title')
-    image=data[0].get('image')
-    instructions=data[0].get('analyzedInstructions')[0]['steps']
-    summary_text=data[0].get('summary')
-    tips_text=data[0].get('tips')['health']
-    ingredients=data[0].get("extendedIngredients")
+    if g.user:
+        resp=requests.get("https://api.spoonacular.com/recipes/informationBulk", params={"apiKey": API_SECRET_KEY, 'ids': recipe_id})
+        data=resp.json()
+        recipe=data[0]
+        title=data[0].get('title')
+        image=data[0].get('image')
+        instructions=data[0].get('analyzedInstructions')[0]['steps']
+        summary_text=data[0].get('summary')
+        tips_text=data[0].get('tips')['health']
+        ingredients=data[0].get("extendedIngredients")
 
-    user = g.user
-    fav_recipes=Liked_recipes.query.filter(user.id==user.id).all()
-    liked_recipe_ids=[fav.recipe_id for fav in fav_recipes]
+        user = g.user
+        fav_recipes=Liked_recipes.query.filter(user.id==user.id).all()
+        liked_recipe_ids=[fav.recipe_id for fav in fav_recipes]
 
-    history_entry = History_recipes.query.filter_by(user_id=g.user.id, recipe_id=recipe_id).first()
+        history_entry = History_recipes.query.filter_by(user_id=g.user.id, recipe_id=recipe_id).first()
 
-    if history_entry:
-        # If it exists, update the timestamp
-        history_entry.timestamp = datetime.utcnow()
+        if history_entry:
+            history_entry.timestamp = datetime.utcnow()
+        else:
+            history_entry = History_recipes(user_id=user.id, recipe_id=recipe_id)
+            db.session.add(history_entry)
+        db.session.commit()
+
+        resp2=requests.get("https://api.spoonacular.com/recipes/complexSearch", params={"apiKey": API_SECRET_KEY, 'veryPopular': 'true'})
+        data2=resp2.json()
+        recipes2=data2.get('results')
+
+
+        return render_template('recipe.html', title=title, instructions=instructions, image=image, recipe=recipe, summary_text=summary_text, tips_text=tips_text, liked_recipe_ids=liked_recipe_ids, ingredients=ingredients, recipes2=recipes2)
+    
     else:
-        # If it doesn't exist, add a new entry
-        history_entry = History_recipes(user_id=user.id, recipe_id=recipe_id)
-        db.session.add(history_entry)
-    db.session.commit()
+        resp=requests.get("https://api.spoonacular.com/recipes/informationBulk", params={"apiKey": API_SECRET_KEY, 'ids': recipe_id})
+        data=resp.json()
+        recipe=data[0]
+        title=data[0].get('title')
+        image=data[0].get('image')
+        instructions=data[0].get('analyzedInstructions')[0]['steps']
+        summary_text=data[0].get('summary')
+        tips_text=data[0].get('tips')['health']
+        ingredients=data[0].get("extendedIngredients")
 
-    resp2=requests.get("https://api.spoonacular.com/recipes/complexSearch", params={"apiKey": API_SECRET_KEY, 'veryPopular': 'true'})
-    data2=resp2.json()
-    recipes2=data2.get('results')
+        resp2=requests.get("https://api.spoonacular.com/recipes/complexSearch", params={"apiKey": API_SECRET_KEY, 'veryPopular': 'true'})
+        data2=resp2.json()
+        recipes2=data2.get('results')
 
-
-    return render_template('recipe.html', title=title, instructions=instructions, image=image, recipe=recipe, summary_text=summary_text, tips_text=tips_text, liked_recipe_ids=liked_recipe_ids, ingredients=ingredients, recipes2=recipes2)
+        return render_template('recipe.html', title=title, instructions=instructions, image=image, recipe=recipe, summary_text=summary_text, tips_text=tips_text, ingredients=ingredients, recipes2=recipes2)
 
 
 
 @app.route('/search')
 def search():
-    if g.user:
-        email=g.user.email
-        user=User.query.filter_by(email=email).first()
 
-        query = request.args.get('q')
+    query = request.args.get('q')
 
-        cuisine = request.args.getlist('cuisine')
-        diet = request.args.getlist('diet')
-        intolerance = request.args.getlist('intolerance')
-        meal_type = request.args.getlist('type')
-        include_ingredients = request.args.get('include-ingredients')
-        exclude_ingredients = request.args.get('exclude-ingredients')
-        max_time = request.args.get('maxTime')
+    cuisine = request.args.getlist('cuisine')
+    diet = request.args.getlist('diet')
+    intolerance = request.args.getlist('intolerance')
+    meal_type = request.args.getlist('type')
+    include_ingredients = request.args.get('include-ingredients')
+    exclude_ingredients = request.args.get('exclude-ingredients')
+    max_time = request.args.get('maxTime')
 
 
-        resp=requests.get("https://api.spoonacular.com/recipes/complexSearch", params={
-            "apiKey": API_SECRET_KEY, 
-            'query': query,
-            'cuisine': ','.join(cuisine),
-            'diet': ','.join(diet),
-            'intolerance': ','.join(intolerance),
-            'type': ','.join(meal_type),
-            'includeIngredients': include_ingredients,
-            'excludeIngredients': exclude_ingredients,
-            'maxTime': max_time,
-            'number':50
-            })
+    resp=requests.get("https://api.spoonacular.com/recipes/complexSearch", params={
+        "apiKey": API_SECRET_KEY, 
+        'query': query,
+        'cuisine': ','.join(cuisine),
+        'diet': ','.join(diet),
+        'intolerance': ','.join(intolerance),
+        'type': ','.join(meal_type),
+        'includeIngredients': include_ingredients,
+        'excludeIngredients': exclude_ingredients,
+        'maxTime': max_time,
+        'number':50
+        })
 
 
-        if resp.status_code == 200:
-            # API request successful, parse the JSON response
-            matching_recipes = resp.json()['results']
-            # print(matching_recipes)
-        else:
-            # API request failed, handle the error (e.g., show an error message)
-            matching_recipes = []
-            # print(resp.content)
-            # print(resp.status_code)
+    if resp.status_code == 200:
+        # API request successful, parse the JSON response
+        matching_recipes = resp.json()['results']
+    else:
+        # API request failed, handle the error (e.g., show an error message)
+        matching_recipes = []
 
+    return render_template('search_results.html', 
+                            query=query, matching_recipes=matching_recipes,
+                            cuisine=cuisine,
+                            diet=diet,
+                            intolerance=intolerance,
+                            meal_type=meal_type,
+                            include_ingredients=include_ingredients,
+                            exclude_ingredients=exclude_ingredients,
+                            max_time=max_time)
 
-
-        return render_template('search_results.html', 
-                               query=query, matching_recipes=matching_recipes,
-                                cuisine=cuisine,
-                                diet=diet,
-                                intolerance=intolerance,
-                                meal_type=meal_type,
-                                include_ingredients=include_ingredients,
-                                exclude_ingredients=exclude_ingredients,
-                                max_time=max_time)
-    
-
-
-    return render_template('home.html')
 
 
 @app.after_request

@@ -114,8 +114,6 @@ class History_recipes(db.Model):
         default=datetime.utcnow
     )
 
-    # user=db.relationship('User', backref='history_recipes')
-
 
 class Liked_recipes(db.Model):
 
@@ -137,7 +135,7 @@ class Liked_recipes(db.Model):
         nullable=False
     )
 
-    # user=db.relationship('User', backref='liked_recipes')
+
 
 def connect_db(app):
     """Connect this database to provided Flask app.
